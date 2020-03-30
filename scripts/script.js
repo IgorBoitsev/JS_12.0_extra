@@ -1,22 +1,7 @@
-// №1 задание сходных данных
-let num = 266219;
-let str = String(num);     // Перевод числа в строку
-let figuresOfNumer = [];
-let comp = 1;
+// №1
+let lang = '';
 
-// №2
-for (i=0; i < String(num).length; i++) {
-  figuresOfNumer[i] = str[i];     // Задание массива, состоящего
-  comp *= str[i];          // цифр заданного числа
+// Проверка выбора языка из двух вариантов
+while ((lang !== 'ru') || (lang !=='en')) {
+  lang = prompt('Введите язык (\'ru\' или \'en\')');
 }
-//console.log(figuresOfNumer);
-//console.log(comp);
-
-// №3
-let compInThirdPower = comp ** 3;
-//console.log(compInThirdPower);
-
-// №4
-alert('Первые две цифры полученного вот того здоровенного числа: '
-      + String(compInThirdPower)[0] + ' и '
-      + String(compInThirdPower)[1]);
