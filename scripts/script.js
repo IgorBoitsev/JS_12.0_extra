@@ -1,4 +1,4 @@
-// №1
+// №1 задание сходных данных
 let num = 266219;
 let str = String(num);     // Перевод числа в строку
 let figuresOfNumer = [];
