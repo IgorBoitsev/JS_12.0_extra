@@ -1,3 +1,5 @@
+'use strict';
+
 let lang = ''
 let dateDay;
 let dateMonth = '';
