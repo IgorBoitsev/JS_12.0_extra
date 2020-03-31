@@ -15,6 +15,7 @@ let dateArr = { 'ru': ['суббота', 'воскресенье', 'понеде
 // Проверка выбора языка из двух вариантов
 lang = prompt('Введите язык (\'ru\' или \'en\')').toLowerCase();
 
+// №1. ВЫВОД ДНЯ НЕДЕЛИ ПО ВВЕДЕННОЙ ДАТЕ
 // Если язык выбран русский
 if (lang == 'ru') {
   // Введение необходимых данных для расчета дня недели
@@ -112,7 +113,10 @@ if (lang == 'ru') {
   alert('Этот день - ' + dateArr[lang][dateResult] + '!');
 }
 
+
+
 // Если язык выбран английский
+/*
 if (lang == 'en') {
   // Введение необходимых данных для расчета дня недели
   dateYear = +prompt('Enter the year: ');
@@ -206,6 +210,17 @@ if (lang == 'en') {
   */
 
   // Вывод дня недели через многомерный массив
+  /*
   alert('It is ' + dateArr[lang][dateResult] + '!');
 }
+*/
 
+// №2 ВЫВОД СТАТУСА КОНКРЕТНОГО ЧЕЛОВЕКА
+/*
+let namePerson = prompt('Введите имя человека, должность которого хотите узнать.').toLowerCase();
+
+(namePerson == 'артем' || namePerson == 'артём') ?
+  console.log(namePerson[0].toUpperCase() + namePerson.slice(1) + ' - директор.') :
+  (namePerson == 'максим') ? console.log(namePerson[0].toUpperCase() + namePerson.slice(1) + ' - преподаватель') :
+    console.log(namePerson[0].toUpperCase() + namePerson.slice(1) + ' - студент.');
+*/
