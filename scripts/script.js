@@ -7,6 +7,7 @@ let dateYear;
 let dateYearCode;
 let dateMonthCode;
 let dateDayCode;
+let dateResult;
 let today;
 let dateArr = { 'ru': ['суббота', 'воскресенье', 'понедельник', 'вторник', 'среда', 'четверг', 'пятница'],
                 'en': ['saturday', 'sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday']
