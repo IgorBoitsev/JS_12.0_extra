@@ -1,10 +1,11 @@
 'use strict';
+
 let seconds,
     minutes,
     hours,
-    dayOfWeek,
-    dayNumber,
-    monthNumber,
+    // dayOfWeek,
+    // dayNumber,
+    // monthNumber,
     week = [
             'Воскресенье',
             'Понедельник',
@@ -34,9 +35,9 @@ seconds = currentDay.getSeconds();
 minutes = currentDay.getMinutes();
 hours = currentDay.getHours();
 
-dayNumber = currentDay.getDate() + 1;
-monthNumber = currentDay.getMonth();
-dayOfWeek = week[currentDay.getDay()];
+// dayNumber = currentDay.getDate() + 1;
+// monthNumber = currentDay.getMonth();
+// dayOfWeek = week[currentDay.getDay()];
 
 let displayDate = function(d) {
   // Создание строки с датой
@@ -132,9 +133,11 @@ let displayDigitalDate = function(d) {
   } else {
       digitalDate = digitalDate + ':' + seconds;
     }    
-    
+
   return digitalDate;
 }
+
+
 
 document.write(displayDate(currentDay) + displayTime(hours, minutes, seconds));
 document.write('<br>');
@@ -142,3 +145,8 @@ document.write(displayDigitalDate(currentDay));
 
 console.log(displayDate(currentDay) + displayTime(hours, minutes, seconds));
 console.log(displayDigitalDate(currentDay));
+
+
+// setInterval(function(){
+//   document.write(displayDigitalDate(currentDay) + '<br>');
+// }, 2000);
