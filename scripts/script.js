@@ -47,8 +47,11 @@ let displayDate = function(d) {
   return todaysDate;
 }
 
-let displayTime = function(h, m, s) {
-  let time = '';
+let displayTime = function(d) {
+  let time = '',
+      h = d.getHours(),
+      m = d.getMinutes(),
+      s = d.getSeconds();
 
   // Изменение окончания в зависимости от текущего часа
   if (h == 1 || h == 21) {
@@ -139,11 +142,11 @@ let displayDigitalDate = function(d) {
 
 
 
-document.write(displayDate(currentDay) + displayTime(hours, minutes, seconds));
+document.write(displayDate(currentDay) + displayTime(currentDay));
 document.write('<br>');
 document.write(displayDigitalDate(currentDay));
 
-console.log(displayDate(currentDay) + displayTime(hours, minutes, seconds));
+console.log(displayDate(currentDay) + displayTime(currentDay));
 console.log(displayDigitalDate(currentDay));
 
 
