@@ -31,13 +31,6 @@ let seconds,
           ],
     year;
 let currentDay = new Date();
-seconds = currentDay.getSeconds();
-minutes = currentDay.getMinutes();
-hours = currentDay.getHours();
-
-// dayNumber = currentDay.getDate() + 1;
-// monthNumber = currentDay.getMonth();
-// dayOfWeek = week[currentDay.getDay()];
 
 let displayDate = function(d) {
   // Создание строки с датой
@@ -117,21 +110,21 @@ let displayDigitalDate = function(d) {
     }
 
   // Проверка часов на наличие 0 впереди
-  if (hours < 9) {
+  if (d.getHours() < 9) {
     digitalDate = digitalDate + ' - ' + '0' + d.getHours();
   } else {
       digitalDate = digitalDate + ' - ' + d.getHours();
     }
 
   // Проверка минут на наличие 0 впереди
-  if (minutes < 9) {
+  if (d.getMinutes() < 9) {
     digitalDate = digitalDate + ':0' + d.getMinutes();
   } else {
       digitalDate = digitalDate + ':' + d.getMinutes();
     }
 
   // Проверка минут на наличие 0 впереди
-  if (seconds < 9) {
+  if (d.getSeconds() < 9) {
     digitalDate = digitalDate + ':0' + d.getSeconds();
   } else {
       digitalDate = digitalDate + ':' + d.getSeconds();
