@@ -115,23 +115,23 @@ let displayDigitalDate = function(d) {
 
   // Проверка часов на наличие 0 впереди
   if (hours < 9) {
-    digitalDate = digitalDate + ' - ' + '0' + hours;
+    digitalDate = digitalDate + ' - ' + '0' + d.getHours();
   } else {
-      digitalDate = digitalDate + ' - ' + hours;
+      digitalDate = digitalDate + ' - ' + d.getHours();
     }
 
   // Проверка минут на наличие 0 впереди
   if (minutes < 9) {
-    digitalDate = digitalDate + ':0' + minutes;
+    digitalDate = digitalDate + ':0' + d.getMinutes();
   } else {
-      digitalDate = digitalDate + ':' + minutes;
+      digitalDate = digitalDate + ':' + d.getMinutes();
     }
 
   // Проверка минут на наличие 0 впереди
   if (seconds < 9) {
-    digitalDate = digitalDate + ':0' + seconds;
+    digitalDate = digitalDate + ':0' + d.getSeconds();
   } else {
-      digitalDate = digitalDate + ':' + seconds;
+      digitalDate = digitalDate + ':' + d.getSeconds();
     }    
 
   return digitalDate;
@@ -147,6 +147,8 @@ console.log(displayDate(currentDay) + displayTime(hours, minutes, seconds));
 console.log(displayDigitalDate(currentDay));
 
 
-// setInterval(function(){
-//   document.write(displayDigitalDate(currentDay) + '<br>');
-// }, 2000);
+setInterval(function(){
+  let cd = new Date();
+  console.log(displayDigitalDate(cd));
+  console.log(cd);
+}, 1000)
