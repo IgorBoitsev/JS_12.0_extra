@@ -100,6 +100,4 @@ DomElement.prototype.eventsListeners = function() {
   });
 };
 
-newDomElement.eventsListeners();
-
-// document.addEventListener('DOMContentLoaded', console.log('Можно работать!'));
+document.addEventListener('DOMContentLoaded', newDomElement.eventsListeners());
