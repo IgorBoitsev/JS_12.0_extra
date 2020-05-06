@@ -2,12 +2,16 @@ document.addEventListener('DOMContentLoaded', () => {
     'use strict';
 
     const select = document.getElementById('cars'),
-          output = document.getElementById('output');
+          output = document.getElementById('output'),
+          urlAddress = './scripts/cars.json';
 
-    const outputMessage = (carData) => {
-        return new Promise(() => {
+    const successMessage = (elem) => console.log(elem);
+    const errorMessage = (mes) => console.log(mes);
+
+    const outputMessage = (url) => {
+        return new Promise((resolve, reject) => {
             const request = new XMLHttpRequest();
-            request.open('GET', './scripts/cars.json');
+            request.open('GET', url);
             request.setRequestHeader('Content-type', 'application/json');
             request.send();
             request.addEventListener('readystatechange', () => {
@@ -15,17 +19,19 @@ document.addEventListener('DOMContentLoaded', () => {
                     const data = JSON.parse(request.responseText);
                     data.cars.forEach(item => {
                         if (item.brand === select.value) {
-                            const {brand, model, price} = item;
-                            output.innerHTML = `Тачка: ${brand} ${model} <br>
-                            Цена: ${price}$`;
+                            // resolve(item);
+                            output.innerHTML = `Тачка: ${item.brand} ${item.model} <br>
+                            Цена: ${item.price}$`
                         }
                     });
                 } else {
+                    // reject('Произошла ошибка');
                     output.innerHTML = 'Произошла ошибка';
                 }
             });
         });
     }
-    
-    select.addEventListener('change', outputMessage);
+
+    select.addEventListener('change', () => outputMessage(urlAddress));
+
 });
