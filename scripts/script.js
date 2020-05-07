@@ -5,8 +5,8 @@ document.addEventListener('DOMContentLoaded', () => {
           output = document.getElementById('output'),
           urlAddress = './scripts/cars.json';
 
-    const successMessage = (elem) => console.log(elem);
-    const errorMessage = (mes) => console.log(mes);
+    // const successMessage = (elem) => console.log(elem);
+    // const errorMessage = (mes) => console.log(mes);
 
     const outputMessage = (url) => {
         return new Promise((resolve, reject) => {
@@ -19,19 +19,27 @@ document.addEventListener('DOMContentLoaded', () => {
                     const data = JSON.parse(request.responseText);
                     data.cars.forEach(item => {
                         if (item.brand === select.value) {
-                            // resolve(item);
-                            output.innerHTML = `Тачка: ${item.brand} ${item.model} <br>
-                            Цена: ${item.price}$`
+                            
+                            resolve(item);
+                            // output.innerHTML = `Тачка: ${item.brand} ${item.model} <br>
+                            // Цена: ${item.price}$`
                         }
                     });
                 } else {
-                    // reject('Произошла ошибка');
-                    output.innerHTML = 'Произошла ошибка';
+                    reject('Произошла ошибка');
+                    // output.innerHTML = 'Произошла ошибка';
                 }
             });
         });
     }
 
-    select.addEventListener('change', () => outputMessage(urlAddress));
+    select.addEventListener('change', () => {
+        outputMessage(urlAddress)
+            .then(
+                result => output.innerHTML = `Тачка: ${result.brand} ${result.model} <br>
+                                              Цена: ${result.price}$`
+            )
+            .catch(mes => output.innerHTML = mes)
+    });
 
 });
